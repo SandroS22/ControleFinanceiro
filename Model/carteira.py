@@ -21,3 +21,11 @@ class Carteira:
     @codigo.setter
     def codigo(self, codigo):
         self.__codigo = codigo
+
+    @property
+    def receitas(self):
+        return self.__receitas
+
+    @property
+    def despesas(self):
+        return self.__despesas

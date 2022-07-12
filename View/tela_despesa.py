@@ -21,5 +21,3 @@ class TelaDespesa(AbstractTela):
         codigo = randint(0, 1000)
         return {'carteira': carteira, 'valor': valor, 'descricao': descricao, 'categoria': categoria, 'codigo': codigo}
 
-    def mostra_despesa(self, cod):
-        print('Codigo da despesa: ', cod.codigo)

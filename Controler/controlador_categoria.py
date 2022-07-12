@@ -1,11 +1,12 @@
 from Model.categoria import Categoria
 from View.tela_categoria import TelaCategoria
+from controlador_sistema import ControladorSistema
 
 
 class ControladorCategoria:
-    def __init__(self, controlador_sistema):
+    def __init__(self):
         self.__categorias = []
-        self.__controlador_sistema = controlador_sistema
+        self.__controlador_sistema = ControladorSistema()
         self.__tela_categoria = TelaCategoria()
 
     def inclui_categoria(self):
@@ -15,7 +16,7 @@ class ControladorCategoria:
                 c = Categoria(nome)
                 self.__categorias.append(c)
             else:
-                return 'Categoria já existente'
+                self.__tela_categoria.mostra_mensagem('Categoria já existe')
 
     def exclui_categoria(self):
         nome = self.__tela_categoria.pega_dados_categoria()

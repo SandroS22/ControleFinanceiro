@@ -1,27 +1,27 @@
 from Model.despesa import Despesa
 from View.tela_receita import TelaRceita
+from controlador_sistema import ControladorSistema
 
 
 class ControladorReceita:
-    def __init__(self, controlador_sistema):
-        self.__receitas = []
-        self.__controlador_sistema = controlador_sistema
+    def __init__(self):
+        self.__controlador_sistema = ControladorSistema
         self.__tela_receita = TelaRceita()
 
-    def inclui_receita(self):
+    def inclui_receita(self, carteira):
         dados_receita = self.__tela_receita.pega_dados_receita()
         receita = Despesa(dados_receita['carteira'], ['valor'], ['descricao'], ['categoria'], ['codigo'])
-        return receita
+        carteira.receitas.append(receita)
 
-    def lista_receitas(self):
-        if len(self.__receitas) == 0:
+    def lista_receita(self, carteira):
+        if len(carteira.despesas) == 0:
             self.__tela_receita.mostra_mensagem('Lista vazia')
         else:
-            for receita in self.__receitas:
-                self.__tela_receita.mostra_receita(receita.codigo)
+            for i in carteira.despesas:
+                self.__tela_receita.mostra_mensagem(i.descricao + i.codigo)
 
-    def total_receita(self):
+    def total_receitas(self, carteira):
         total = 0
-        for receita in self.__receitas:
-            total += receita.valor
-        return total
+        for i in carteira.receitas:
+            total += i.valor
+        self.__tela_receita.mostra_mensagem(total)

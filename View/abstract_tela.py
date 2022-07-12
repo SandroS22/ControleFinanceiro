@@ -34,7 +34,7 @@ class AbstractTela(ABC):
                 print('Categoria inválida.')
 
     def selecionar(self):
-        codigo = input(self.numero('Codigo: '))
+        codigo = self.numero(input('Codigo: '))
         return codigo
 
     def mostra_mensagem(self, msg):

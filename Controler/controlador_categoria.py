@@ -19,7 +19,7 @@ class ControladorCategoria:
             elif op == 3:
                 self.lista_categoria()
             elif op == 0:
-                return
+                break
 
     def altera_categoria(self):
         x = self.__tela_categoria.pega_dados_categoria()

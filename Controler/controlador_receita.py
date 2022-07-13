@@ -18,7 +18,7 @@ class ControladorReceita:
             elif x == 2:
                 self.lista_receita()
             elif x == 0:
-                return
+                break
 
     def inclui_receita(self):
         carteira = self.__controlador_carteira.pega_carteira()

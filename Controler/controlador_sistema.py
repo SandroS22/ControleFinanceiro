@@ -25,4 +25,4 @@ class ControladorSistema:
             elif op == 4:
                 self.__controlador_categoria.opcoes_categoria()
             elif op == 0:
-                return
+                break

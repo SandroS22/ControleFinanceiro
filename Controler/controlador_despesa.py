@@ -20,7 +20,7 @@ class ControladorDespesa:
             elif op == 3:
                 self.total_despesa()
             elif op == 0:
-                return
+                break
 
     def inclui_despesa(self):
         carteira = self.__controlador_carteira.pega_carteira()

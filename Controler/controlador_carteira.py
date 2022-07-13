@@ -28,7 +28,7 @@ class ControladorCarteira:
             elif op == 3:
                 self.listar_carteiras()
             elif op == 0:
-                return
+                break
 
     def exclui_carteira(self):
         cod = self.__tela_carteira.selecionar()

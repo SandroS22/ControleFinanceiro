@@ -18,7 +18,3 @@ class TelaCarteira(AbstractTela):
         nome = input('Nome: ')
         codigo = randint(0, 1000)
         return {'nome': nome, 'codigo': codigo}
-
-    def excluir_carteira(self):
-        c = self.selecionar()
-        return c

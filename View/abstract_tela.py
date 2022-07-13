@@ -22,7 +22,7 @@ class AbstractTela(ABC):
             try:
                 valor_num = float(valor)
             except:
-                print("O valor digitado é inválido, você deve digitar um número.")
+                print("O valor digitado é inválido.")
             else:
                 return valor_num
 

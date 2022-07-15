@@ -31,7 +31,8 @@ class AbstractTela(ABC):
             if isinstance(categoria, Categoria):
                 return categoria
             else:
-                print('Categoria inválida.')
+                self.mostra_mensagem('Categoria inválida.')
+                return None
 
     def selecionar(self):
         codigo = self.numero(input('Codigo: '))

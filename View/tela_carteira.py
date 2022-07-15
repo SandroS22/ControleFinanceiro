@@ -1,4 +1,4 @@
-from abstract_tela import AbstractTela
+from View.abstract_tela import AbstractTela
 from random import randint
 
 

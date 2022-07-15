@@ -1,14 +1,13 @@
 from Model.despesa import Despesa
 from View.tela_receita import TelaRceita
-from controlador_sistema import ControladorSistema
-from controlador_carteira import ControladorCarteira
+from Controler.controlador_carteira import ControladorCarteira
 
 
 class ControladorReceita:
-    def __init__(self):
-        self.__controlador_sistema = ControladorSistema
+    def __init__(self, controlador_sistema):
+        self.__controlador_sistema = controlador_sistema
         self.__tela_receita = TelaRceita()
-        self.__controlador_carteira = ControladorCarteira()
+        self.__controlador_carteira = ControladorCarteira(self)
 
     def opcoes_receita(self):
         while True:

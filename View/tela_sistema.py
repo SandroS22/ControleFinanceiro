@@ -1,9 +1,9 @@
-from abstract_tela import AbstractTela
+from View.abstract_tela import AbstractTela
 
 
 class TelaSistema(AbstractTela):
     def tela_opcoes(self):
-        print("-------- Categorias ----------")
+        print("-------- Sistema ----------")
         print("Escolha a opcao")
         print("1 - Carteiras")
         print("2 - Receitas")

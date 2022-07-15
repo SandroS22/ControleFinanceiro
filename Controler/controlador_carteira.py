@@ -1,16 +1,15 @@
 from View.tela_carteira import TelaCarteira
 from Model.carteira import Carteira
-from controlador_sistema import ControladorSistema
 
 
 class ControladorCarteira:
-    def __init__(self):
-        self.__controlador_sistema = ControladorSistema()
+    def __init__(self, controlador_sistema):
+        self.__controlador_sistema = controlador_sistema
         self.__tela_carteira = TelaCarteira()
         self.__carteiras = []
 
     @property
-    def carterias(self):
+    def carteiras(self):
         return self.__carteiras
 
     def inclui_carteira(self):
@@ -44,6 +43,7 @@ class ControladorCarteira:
         else:
             for i in self.__carteiras:
                 self.__tela_carteira.mostra_mensagem(i.nome)
+                self.__tela_carteira.mostra_mensagem(i.codigo)
 
     def pega_carteira(self):
         x = self.__tela_carteira.teste_carteira(self.__tela_carteira.selecionar())

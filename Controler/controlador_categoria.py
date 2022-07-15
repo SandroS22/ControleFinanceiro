@@ -1,13 +1,12 @@
 from Model.categoria import Categoria
 from View.tela_categoria import TelaCategoria
-from controlador_sistema import ControladorSistema
 
 
 class ControladorCategoria:
-    def __init__(self):
+    def __init__(self, controlador_sistema):
         self.__categorias = []
-        self.__controlador_sistema = ControladorSistema()
         self.__tela_categoria = TelaCategoria()
+        self.__controlador_sistema = controlador_sistema
 
     def opcoes_categoria(self):
         while True:
@@ -49,4 +48,4 @@ class ControladorCategoria:
             self.__tela_categoria.mostra_mensagem('Lista vazia')
         else:
             for categoria in self.__categorias:
-                self.__tela_categoria.mostra_categoria(categoria.nome)
+                self.__tela_categoria.mostra_mensagem(categoria.nome)

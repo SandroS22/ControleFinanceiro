@@ -1,6 +1,6 @@
 from abc import ABC
-from categoria import Categoria
-from carteira import Carteira
+from Model.categoria import Categoria
+from Model.carteira import Carteira
 
 
 class Movimentacao(ABC):

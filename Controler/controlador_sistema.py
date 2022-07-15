@@ -1,17 +1,17 @@
-from controlador_receita import ControladorReceita
-from controlador_categoria import ControladorCategoria
+from Controler.controlador_receita import ControladorReceita
+from Controler.controlador_categoria import ControladorCategoria
 from View.tela_sistema import TelaSistema
-from controlador_carteira import ControladorCarteira
-from controlador_despesa import ControladorDespesa
+from Controler.controlador_carteira import ControladorCarteira
+from Controler.controlador_despesa import ControladorDespesa
 
 
 class ControladorSistema:
     def __init__(self):
         self.__tela_sistema = TelaSistema()
-        self.__controlador_carteira = ControladorCarteira()
-        self.__controlador_despesa = ControladorDespesa()
-        self.__controlador_receita = ControladorReceita()
-        self.__controlador_categoria = ControladorCategoria()
+        self.__controlador_carteira = ControladorCarteira(self)
+        self.__controlador_despesa = ControladorDespesa(self)
+        self.__controlador_receita = ControladorReceita(self)
+        self.__controlador_categoria = ControladorCategoria(self)
 
     def tela_opcoes(self):
         while True:
@@ -26,3 +26,6 @@ class ControladorSistema:
                 self.__controlador_categoria.opcoes_categoria()
             elif op == 0:
                 break
+
+    def iniciar(self):
+        c = self.tela_opcoes()

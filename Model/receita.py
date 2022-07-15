@@ -1,4 +1,4 @@
-from abstract_movimentacao import Movimentacao
+from Model.abstract_movimentacao import Movimentacao
 
 
 class Receita(Movimentacao):

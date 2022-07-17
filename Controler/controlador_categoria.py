@@ -40,8 +40,8 @@ class ControladorCategoria:
         for i in self.__categorias:
             if i == nome:
                 self.__categorias.remove(i)
-            else:
-                return 'Categoria inexistente'
+        else:
+            self.__tela_categoria.mostra_mensagem('Categoria inexistente')
 
     def lista_categoria(self):
         if len(self.__categorias) == 0:

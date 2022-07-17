@@ -1,5 +1,5 @@
 from Controler.controlador_sistema import ControladorSistema
 
 
-x = ControladorSistema()
-x.iniciar()
+if __name__ == '__main__':
+    ControladorSistema().iniciar()

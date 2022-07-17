@@ -14,7 +14,7 @@ class ControladorCarteira:
 
     def inclui_carteira(self):
         dados = self.__tela_carteira.nova_carteira()
-        carteira = Carteira(dados['nome'], ['codigo'])
+        carteira = Carteira(dados['nome'], dados['codigo'])
         self.__carteiras.append(carteira)
 
     def opcoes_carteira(self):
@@ -34,16 +34,15 @@ class ControladorCarteira:
         for i in self.__carteiras:
             if i.codigo == cod:
                 self.__carteiras.remove(i)
-            else:
-                self.__tela_carteira.mostra_mensagem('Carteira inexistente')
+        else:
+            self.__tela_carteira.mostra_mensagem('Carteira inexistente')
 
     def listar_carteiras(self):
         if len(self.__carteiras) == 0:
             self.__tela_carteira.mostra_mensagem('Lista vazia')
         else:
             for i in self.__carteiras:
-                self.__tela_carteira.mostra_mensagem(i.nome)
-                self.__tela_carteira.mostra_mensagem(i.codigo)
+                self.__tela_carteira.mostra_mensagem(i.nome + ' ' + str(i.codigo))
 
     def pega_carteira(self):
         x = self.__tela_carteira.teste_carteira(self.__tela_carteira.selecionar())

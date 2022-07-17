@@ -28,4 +28,4 @@ class ControladorSistema:
                 break
 
     def iniciar(self):
-        c = self.tela_opcoes()
+        self.tela_opcoes()

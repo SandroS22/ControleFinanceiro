@@ -24,7 +24,9 @@ class ControladorDespesa:
     def inclui_despesa(self):
         carteira = self.__controlador_carteira.pega_carteira()
         dados_depesa = self.__tela_despesa.pega_dados_despesa()
-        despesa = Despesa(dados_depesa['carteira'], ['valor'], ['descricao'], ['categoria'], ['codigo'])
+        despesa = Despesa(dados_depesa['carteira'], dados_depesa['valor'],
+                          dados_depesa['descricao'], dados_depesa['categoria'],
+                          dados_depesa['codigo'])
         carteira.despesas.append(despesa)
 
     def lista_despesa(self):
@@ -33,7 +35,7 @@ class ControladorDespesa:
             self.__tela_despesa.mostra_mensagem('Lista vazia')
         else:
             for i in carteira.despesas:
-                self.__tela_despesa.mostra_mensagem(i.descricao + i.codigo)
+                self.__tela_despesa.mostra_mensagem(i.descricao + ' ' + str(i.codigo))
 
     def total_despesa(self):
         carteira = self.__controlador_carteira.pega_carteira()

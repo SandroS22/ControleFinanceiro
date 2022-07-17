@@ -22,7 +22,9 @@ class ControladorReceita:
     def inclui_receita(self):
         carteira = self.__controlador_carteira.pega_carteira()
         dados_receita = self.__tela_receita.pega_dados_receita()
-        receita = Despesa(dados_receita['carteira'], ['valor'], ['descricao'], ['categoria'], ['codigo'])
+        receita = Despesa(dados_receita['carteira'], dados_receita['valor'],
+                          dados_receita['descricao'], dados_receita['categoria'],
+                          dados_receita['codigo'])
         carteira.receitas.append(receita)
 
     def lista_receita(self):
@@ -31,7 +33,7 @@ class ControladorReceita:
             self.__tela_receita.mostra_mensagem('Lista vazia')
         else:
             for i in carteira.despesas:
-                self.__tela_receita.mostra_mensagem(i.descricao + i.codigo)
+                self.__tela_receita.mostra_mensagem(i.descricao + ' ' + str(i.codigo))
 
     def total_receitas(self):
         carteira = self.__controlador_carteira.pega_carteira()

@@ -1,13 +1,11 @@
 from Model.despesa import Despesa
 from View.tela_despesa import TelaDespesa
-from Controler.controlador_carteira import ControladorCarteira
 
 
 class ControladorDespesa:
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
         self.__tela_despesa = TelaDespesa()
-        self.__controlador_carteira = ControladorCarteira(self)
 
     def opcoes_despesa(self):
         while True:
@@ -22,7 +20,7 @@ class ControladorDespesa:
                 break
 
     def inclui_despesa(self):
-        carteira = self.__controlador_carteira.pega_carteira()
+        carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
         dados_depesa = self.__tela_despesa.pega_dados_despesa()
         despesa = Despesa(dados_depesa['carteira'], dados_depesa['valor'],
                           dados_depesa['descricao'], dados_depesa['categoria'],
@@ -30,7 +28,7 @@ class ControladorDespesa:
         carteira.despesas.append(despesa)
 
     def lista_despesa(self):
-        carteira = self.__controlador_carteira.pega_carteira()
+        carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
         if len(carteira.despesas) == 0:
             self.__tela_despesa.mostra_mensagem('Lista vazia')
         else:
@@ -38,7 +36,7 @@ class ControladorDespesa:
                 self.__tela_despesa.mostra_mensagem(i.descricao + ' ' + str(i.codigo))
 
     def total_despesa(self):
-        carteira = self.__controlador_carteira.pega_carteira()
+        carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
         total = 0
         for i in carteira.despesas:
             total += i.valor

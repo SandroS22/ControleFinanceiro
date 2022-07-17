@@ -13,6 +13,22 @@ class ControladorSistema:
         self.__controlador_receita = ControladorReceita(self)
         self.__controlador_categoria = ControladorCategoria(self)
 
+    @property
+    def controlador_carteira(self):
+        return self.__controlador_carteira
+
+    @property
+    def controlador_despesa(self):
+        return self.__controlador_despesa
+
+    @property
+    def controlador_receita(self):
+        return self.__controlador_receita
+
+    @property
+    def controlador_categoria(self):
+        return self.__controlador_categoria
+
     def tela_opcoes(self):
         while True:
             op = self.__tela_sistema.tela_opcoes()

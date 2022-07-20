@@ -20,6 +20,7 @@ class ControladorDespesa:
                 break
 
     def inclui_despesa(self):
+        self.__controlador_sistema.controlador_carteira.listar_carteiras()
         carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
         dados_depesa = self.__tela_despesa.pega_dados_despesa()
         despesa = Despesa(dados_depesa['carteira'], dados_depesa['valor'],

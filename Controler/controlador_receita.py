@@ -26,6 +26,7 @@ class ControladorReceita:
         carteira.receitas.append(receita)
 
     def lista_receita(self):
+        self.__controlador_sistema.controlador_carteira.listar_carteiras()
         carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
         if len(carteira.despesas) == 0:
             self.__tela_receita.mostra_mensagem('Lista vazia')

@@ -17,6 +17,8 @@ class ControladorCategoria:
                 self.altera_categoria()
             elif op == 3:
                 self.lista_categoria()
+            elif op == 4:
+                self.exclui_categoria()
             elif op == 0:
                 break
 
@@ -38,7 +40,7 @@ class ControladorCategoria:
     def exclui_categoria(self):
         nome = self.__tela_categoria.pega_dados_categoria()
         for i in self.__categorias:
-            if i == nome:
+            if i.nome == nome:
                 self.__categorias.remove(i)
         else:
             self.__tela_categoria.mostra_mensagem('Categoria inexistente')

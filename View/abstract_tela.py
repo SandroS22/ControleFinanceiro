@@ -19,12 +19,12 @@ class AbstractTela(ABC):
 
     def numero(self, valor):
         while True:
-            valor_lido = input(valor)
             try:
-                numero = float(valor_lido)
+                numero = float(valor)
                 return numero
             except:
                 self.mostra_mensagem("O valor digitado é inválido.")
+                return None
 
     def teste_categoria(self, categoria):
         while True:
@@ -47,4 +47,4 @@ class AbstractTela(ABC):
                 return carteira
             else:
                 self.mostra_mensagem('Carteira inválida')
-                break
+                return None

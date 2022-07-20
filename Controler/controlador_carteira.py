@@ -30,6 +30,7 @@ class ControladorCarteira:
                 break
 
     def exclui_carteira(self):
+        self.listar_carteiras()
         cod = self.__tela_carteira.selecionar()
         for i in self.__carteiras:
             if i.codigo == cod:
@@ -46,8 +47,10 @@ class ControladorCarteira:
 
     def pega_carteira(self):
         x = self.__tela_carteira.teste_carteira(self.__tela_carteira.selecionar())
+        if x == None:
+            self.__controlador_sistema.controlador_receita.inclui_receita()
         for i in self.__carteiras:
-            if i.codigo == x.codigo:
+            if i.codigo == x:
                 return x
         else:
             self.__tela_carteira.mostra_mensagem('Carteira inexistente')

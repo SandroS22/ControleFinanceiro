@@ -23,6 +23,7 @@ class ControladorCategoria:
                 break
 
     def altera_categoria(self):
+        # TODO: Pegar dado antigo e o novo para atualizar
         x = self.__tela_categoria.pega_dados_categoria()
         for i in self.__categorias:
             i.nome = x
@@ -51,3 +52,13 @@ class ControladorCategoria:
         else:
             for categoria in self.__categorias:
                 self.__tela_categoria.mostra_mensagem(categoria.nome)
+
+    def pega_categoria(self):
+        if len(self.__categorias) == 0:
+            self.__tela_categoria.mostra_mensagem('Lista vazia')
+        else:
+            self.__tela_categoria.mostra_mensagem('Insira o nome da categoria')
+            cat = self.__tela_categoria.pega_dados_categoria()
+            for i in self.__categorias:
+                if i.nome == cat:
+                    return i

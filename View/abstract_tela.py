@@ -18,13 +18,12 @@ class AbstractTela(ABC):
                     print('Valores válidos: ', inteiros_validos)
 
     def numero(self, valor):
-        while True:
-            try:
-                numero = float(valor)
-                return valor
-            except:
-                self.mostra_mensagem("O valor digitado é inválido.")
-                return None
+        try:
+            numero = float(valor)
+            return numero
+        except:
+            self.mostra_mensagem("O valor digitado é inválido.")
+            return None
 
     def teste_categoria(self, categoria):
         while True:

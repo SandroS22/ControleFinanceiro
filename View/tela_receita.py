@@ -14,10 +14,7 @@ class TelaRceita(AbstractTela):
 
     def pega_dados_receita(self):
         print('-------- DADOS RECEITA ----------')
-        carteira = input(self.teste_carteira('Carteira: '))
-        valor = input(self.numero('Valor: '))
+        valor = self.numero(input('Valor: '))
         descricao = input('Descricao: ')
-        categoria = input(self.teste_categoria('Categoria: '))
         codigo = randint(0, 1000)
-        return {'carteira': carteira, 'valor': valor, 'descricao': descricao, 'categoria': categoria, 'codigo': codigo}
-
+        return {'valor': valor, 'descricao': descricao, 'codigo': codigo}

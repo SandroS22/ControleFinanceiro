@@ -20,7 +20,8 @@ class Carteira:
 
     @codigo.setter
     def codigo(self, codigo):
-        self.__codigo = codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
 
     @property
     def receitas(self):

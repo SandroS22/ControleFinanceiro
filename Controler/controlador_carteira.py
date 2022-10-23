@@ -30,13 +30,14 @@ class ControladorCarteira:
                 break
 
     def exclui_carteira(self):
-        self.listar_carteiras()
-        cod = self.__tela_carteira.selecionar()
-        for i in self.__carteiras:
-            if i.codigo == cod:
-                self.__carteiras.remove(i)
+        if len(self.__carteiras) == 0:
+            self.__tela_carteira.mostra_mensagem('Lista vazia')
         else:
-            self.__tela_carteira.mostra_mensagem('Carteira inexistente')
+            self.listar_carteiras()
+            c = self.pega_carteira()
+            for i in self.__carteiras:
+                if i == c:
+                    self.__carteiras.remove(i)
 
     def listar_carteiras(self):
         if len(self.__carteiras) == 0:
@@ -44,13 +45,12 @@ class ControladorCarteira:
         else:
             for i in self.__carteiras:
                 self.__tela_carteira.mostra_mensagem(i.nome + ' ' + str(i.codigo))
+                self.__tela_carteira.mostra_mensagem('')
 
     def pega_carteira(self):
-        x = self.__tela_carteira.teste_carteira(self.__tela_carteira.selecionar())
-        if x == None:
-            self.__controlador_sistema.controlador_receita.inclui_receita()
+        x = self.__tela_carteira.selecionar()
         for i in self.__carteiras:
             if i.codigo == x:
-                return x
-        else:
-            self.__tela_carteira.mostra_mensagem('Carteira inexistente')
+                return i
+            else:
+                self.__tela_carteira.mostra_mensagem('Carteira inexistente')

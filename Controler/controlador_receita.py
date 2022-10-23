@@ -1,4 +1,4 @@
-from Model.despesa import Despesa
+from Model.receita import Receita
 from View.tela_receita import TelaRceita
 
 
@@ -19,9 +19,10 @@ class ControladorReceita:
 
     def inclui_receita(self):
         carteira = self.__controlador_sistema.controlador_carteira.pega_carteira()
+        categoria = self.__controlador_sistema.controlador_categoria.pega_categoria()
         dados_receita = self.__tela_receita.pega_dados_receita()
-        receita = Despesa(dados_receita['carteira'], dados_receita['valor'],
-                          dados_receita['descricao'], dados_receita['categoria'],
+        receita = Receita(carteira, dados_receita['valor'],
+                          dados_receita['descricao'], categoria,
                           dados_receita['codigo'])
         carteira.receitas.append(receita)
 

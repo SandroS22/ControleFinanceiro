@@ -48,7 +48,8 @@ class Movimentacao(ABC):
 
     @codigo.setter
     def codigo(self, codigo):
-        self.__codigo = codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
 
     @carteira.setter
     def carteira(self, carteira):
